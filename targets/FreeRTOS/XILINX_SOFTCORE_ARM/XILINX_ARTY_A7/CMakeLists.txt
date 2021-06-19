@@ -74,6 +74,8 @@ nf_set_compiler_definitions(${NANOBOOTER_PROJECT_NAME}.elf)
 nf_set_linker_options(${NANOBOOTER_PROJECT_NAME}.elf)
 #nf_set_linker_options(${NANOCLR_PROJECT_NAME}.elf)
 
+target_link_libraries(${NANOBOOTER_PROJECT_NAME}.elf ${XILINX_BSP_LIBS})
+
 # generate output files
 nf_generate_build_output_files(${NANOBOOTER_PROJECT_NAME}.elf)
 #nf_generate_build_output_files(${NANOCLR_PROJECT_NAME}.elf)
