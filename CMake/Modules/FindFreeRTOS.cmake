@@ -10,9 +10,11 @@ FetchContent_GetProperties(freertos)
 # WHEN ADDING A NEW series add the respective name to the list bellow along with the CMake files with GCC options and source files
 ###################################################################################################################################
 
-# check if the series name is supported 
+# check if the series name is supported
 
 set(FreeRTOS_SUPPORTED_SERIES IMXRT10xx CACHE INTERNAL "supported series names for FreeRTOS")
+
+list(APPEND FreeRTOS_SUPPORTED_SERIES XILINX_xx)
 
 list(FIND FreeRTOS_SUPPORTED_SERIES ${TARGET_SERIES} TARGET_SERIES_NAME_INDEX)
 
@@ -24,7 +26,7 @@ endif()
 
 # including here the CMake files for the source files specific to the target series
 include(FreeRTOS_${TARGET_SERIES}_sources)
-# and here the GCC options tuned for the target series 
+# and here the GCC options tuned for the target series
 include(FreeRTOS_${TARGET_SERIES}_GCC_options)
 
 # message("FreeRTOS board series is ${TARGET_SERIES}") # debug helper
@@ -62,7 +64,7 @@ foreach(SRC_FILE ${FreeRTOS_SRCS})
     if (BUILD_VERBOSE)
         message("${SRC_FILE} >> ${FreeRTOS_SRC_FILE}") # debug helper
     endif()
-     
+
     list(APPEND FreeRTOS_SOURCES ${FreeRTOS_SRC_FILE})
 
 endforeach()

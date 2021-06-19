@@ -3,7 +3,7 @@
 // Portions Copyright (c) Microsoft Corporation.  All rights reserved.
 // See LICENSE file in the project root for full license information.
 //
-/*
+
 #include <nanoHAL_v2.h>
 #include "target_common.h"
 
@@ -21,4 +21,3 @@ HAL_SYSTEM_CONFIG HalSystemConfig =
 };
 
 HAL_TARGET_CONFIGURATION  g_TargetConfiguration;
-*/

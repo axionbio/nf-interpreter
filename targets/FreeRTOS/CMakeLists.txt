@@ -180,6 +180,22 @@ elseif(EXISTS ${CMAKE_SOURCE_DIR}/targets/FreeRTOS/ST/${TARGET_BOARD})
     # add TARGET board directory
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ST/${TARGET_BOARD})
 
+elseif(EXISTS ${CMAKE_SOURCE_DIR}/targets/FreeRTOS/XILINX_SOFTCORE_ARM/${TARGET_BOARD})
+
+	# board found
+    message(STATUS "Support for target board '${TARGET_BOARD}' found")
+
+    # Define base path for the class libraries
+    SET_BASE_PATH_FOR_LIBRARIES_MODULES(${CMAKE_SOURCE_DIR}/targets/FreeRTOS/XILINX_SOFTCORE_ARM/_nanoCLR)
+
+    # set target base location
+    set(TARGET_BASE_LOCATION ${CMAKE_SOURCE_DIR}/targets/FreeRTOS/XILINX_SOFTCORE_ARM/${TARGET_BOARD})
+
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/XILINX_SOFTCORE_ARM)
+
+    # add TARGET board directory
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/XILINX_SOFTCORE_ARM/${TARGET_BOARD})
+
 else()
 
     # try to find NXP board in the Community targets folder
